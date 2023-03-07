@@ -7,11 +7,3 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
-
-
-@code {
-    protected override async Task OnInitializedAsync()
-    {
-        Fluxor.Blazor.Web.StoreInitializer newFluxor = new();
-    }
-}

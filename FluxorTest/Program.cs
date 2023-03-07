@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Fluxor;
-using FluxorTest;
+using fluxortest;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -12,7 +12,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 //Add Fluxor
 builder.Services.AddFluxor(config =>
 {
-    config.ScanAssemblies()
+    config.ScanAssemblies(typeof(Program).Assembly).UseReduxDevTools();
 });
 
 await builder.Build().RunAsync();
